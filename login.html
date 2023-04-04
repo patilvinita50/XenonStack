@@ -1,0 +1,238 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Teacher Login</title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Bootsrap 4 CDN-->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+<!--Fontawesome CDN-->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous">
+
+<!--Custom styles-->
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+
+<style type="text/css">
+@charset "ISO-8859-1";
+
+/* Made with love by Mutiullah Samim*/
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html, body {
+	/* background-image: url('https://cdn.pixabay.com/photo/2014/12/10/20/56/medical-563427_960_720.jpg'); */
+	background-image: url('https://i.pinimg.com/originals/96/1e/7b/961e7b5ab22f51655970cc4e7bf2bd07.jpg');
+	background-color: #29465B;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+}
+
+ss
+.container {
+	height: 100%;
+	align-content: center;
+}
+
+.card {
+	height: 400px;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 500px;
+	background-color: rgba(0, 0, 0, 0.5) !important;
+	border-radius: 6px;
+}
+
+.social_icon span {
+	font-size: 60px;
+	margin-left: 10px;
+	color: #FFC312;
+}
+
+.social_icon span:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.card-header h3 {
+	color: white;
+}
+
+.social_icon {
+	position: absolute;
+	right: 20px;
+	top: -45px;
+}
+
+.input-group-prepend span {
+	width: 50px;
+	background-color: #FFC312;
+	color: black;
+	border: 0 !important;
+}
+
+input:focus {
+	outline: 0 0 0 0 !important;
+	box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+	color: white;
+}
+
+.remember input {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+	margin-right: 5px;
+}
+
+.login_btn {
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
+}
+
+.login_btn:hover {
+	color: black;
+	background-color: white;
+}
+
+.links {
+	color: white;
+}
+
+.links a {
+	margin-left: 4px;
+}
+</style>
+
+<link rel="icon" type="image/x-icon"
+	href="http://localhost:8181/assets/img/logo.png">
+
+</head>
+<body>
+	<div class="container">
+
+
+		<!-- toast alert start for login error-->
+		<div align="right" class="mt-2" style="position: relative;">
+			<div style="position: absolute; top: 0; right: 0; width: 350px;"
+				class="toast" data-autohide="false" th:if="${param.error}">
+				<div class="toast-header">
+					<strong class="mr-auto text-primary">Error!</strong>
+					<!-- <small class="text-muted">5 mins ago</small> -->
+					<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+				</div>
+				<div class="toast-body" align="left">Invalid email or password
+					!!</div>
+			</div>
+			</div>
+
+			<script>
+$(document).ready(function(){
+  $('.toast').toast('show');
+});
+</script>
+
+			<!-- toast alert end -->
+
+
+
+			<!-- toast alert start for logout-->
+			 <div align="right" class="mt-2" style="position: relative;">
+				<div style="position: absolute; top: 0; right: 0; width: 350px;"
+					class="toast" data-autohide="false" th:if="${param.logout}">
+					<div class="toast-header">
+						<strong class="mr-auto text-primary">Logout!</strong>
+						<small class="text-muted">5 mins ago</small>
+						<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+					</div>
+					<div class="toast-body" align="left">You have been logged out
+					</div>
+				</div>
+
+				<script>
+$(document).ready(function(){
+  $('.toast').toast('show');
+});
+</script>
+
+				<!-- toast alert end -->
+
+
+
+
+				<!-- 		<script>
+$(document).ready(function(){
+  $('.toast').toast('show');
+});
+</script> -->
+
+				<div class="d-flex justify-content-center h-100">
+					<div class="card" style="height: 260px;">
+
+						<div class="card-header">
+							<h3 align="center">Teacher</h3>
+
+							<!--  	<div th:if="${param.error}" class="alert alert-danger">
+				Invalid Username or Password
+			</div>
+					 <div th:if="${param.logout}" class="alert alert-danger" style="width: 460px;">
+				You have been logged out
+			</div> -->
+
+						</div>
+						<div class="card-body">
+							<form th:action="@{/loginteacher}" method="post">
+								<div class="input-group form-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fas fa-user"></i></span>
+									</div>
+									<input type="text" class="form-control" placeholder="username"
+										name="username">
+
+								</div>
+								<div class="input-group form-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fas fa-key"></i></span>
+									</div>
+									<input type="password" class="form-control"
+										placeholder="password" name="password">
+								</div>
+
+								<div class="form-group">
+									<input type="submit" value="Login"
+										class="btn float-right login_btn">
+								</div>
+
+							</form>
+							<div class="form-group" align="left">
+								<a href="forgot_password" style="color: rgb(255, 255, 255);">Forgot
+									password</a> <a href="/login">Student Login</a>
+							</div>
+						</div>
+						<span
+							style="color: white; margin-bottom: 40px; margin-left: 10px;"></span>
+					</div>
+				</div>
+			</div>
+</body>
+</html>
